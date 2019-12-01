@@ -16,9 +16,12 @@ In the future:
 -Add animations 
 -Add posibility to shot by player
 
-- In the distance future i'll try to write interpreter for making game-Levels, which make it easier and easy for everyone
+- In the distance future i'll try to write interpreter for making game-Levels, which make it easier and more friendly to write
 
 #instalation:
 1. install sfml library on your computer
 2. Make project with my files
 3. Add your own textures, or write to me to send you mine
+
+My purpose of making it:
+To learn a lot as i can
