@@ -18,7 +18,7 @@ void Game::DistributeTheCommands(sf::Time & a)
     interfejs.AutomaticMove(a);
     interfejs.DetectCollisions();
 
-    interfejs.DistributeCommands(Orders,a);
+    interfejs.DistributeCommands(Kontroler.ReturnValidCommands(),a);
 }
 
 void Game::draw()
@@ -84,7 +84,7 @@ void Game::Run()
     while(appwindow.isOpen())
     {
 
-        HandleEvent();
+            HandleEvent();
 
 
             if(stanGry==GameStates::Pause){
@@ -111,24 +111,7 @@ void Game::Run()
 
 void Game::ProcessInput()
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-    {
-        auto f=[](Entity& obiekt, sf::Time& a,sf::Vector2f& b){sf::Vector2f wektorek=sf::Vector2f(-1,0);obiekt.MoveEntity(wektorek,a,b);};
-        command bufor {f,ObjectTypes::Hero};
-        Orders.push(bufor);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-    {
-        auto f=[](Entity& obiekt, sf::Time& a,sf::Vector2f& b){sf::Vector2f wektorek= sf::Vector2f(1,0);obiekt.MoveEntity(wektorek,a,b);};
-        command bufor {f,ObjectTypes::Hero};
-        Orders.push(bufor);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-    {
-        auto f=[](Entity& obiekt, sf::Time& a,sf::Vector2f& b){sf::Vector2f wektorek= sf::Vector2f(0,-1);obiekt.MoveEntity(wektorek,a,b);};
-        command bufor {f,ObjectTypes::Hero};
-        Orders.push(bufor);
-    }
+    Kontroler.ManageControl();
 }
 
 void Game::ProcessEvent()

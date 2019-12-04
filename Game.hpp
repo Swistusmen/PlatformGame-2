@@ -12,6 +12,8 @@
 #include "Utilities.hpp"
 #include "Commands.hpp"
 #include "Interface.hpp"
+#include "Controler.hpp"
+
 //#include "Observer.hpp"
 #pragma once
 
@@ -33,6 +35,8 @@ private:
 
     void DistributeTheCommands(sf::Time& );
 private:
+    Controler Kontroler;
+
     GameStates stanGry =GameStates::Uninitialized;
     sf::RenderWindow appwindow;
     TextureHolder Holder;
@@ -40,21 +44,6 @@ private:
     Interface interfejs;//(Holder) ;
 
     CommandQueue Orders;
-    std::unique_ptr<Entity> Gracz;
-    std::unique_ptr<Entity> ziemia;
-    std::unique_ptr<Entity> ziemia_wyspa;
 
-    std::unique_ptr<Entity> wrog;
-    std::unique_ptr<Entity> brama;
-
-    std::vector<std::unique_ptr<Entity>> wektor;
-    std::vector<std::unique_ptr<Entity>>::iterator it2;
-    std::vector<std::unique_ptr<Entity>>::iterator it3;
-
-    std::vector<std::unique_ptr<Entity>> potwory;
-    std::vector<std::unique_ptr<Entity>> pociski;
-
-    std::shared_ptr<Entity> test;
-    std::vector<std::shared_ptr<Observer>> obserwatorzy;
 
 };
