@@ -11,7 +11,7 @@
 #include <map>
 #pragma once
 
-#define SZEROKOSCOKNA 2800
+#define SZEROKOSCOKNA 3000//2800
 #define WYSOKOSCOKNA 1400
 #define SKOK_GR 400
 #define POZIOM_GRACZ 25
@@ -28,6 +28,8 @@ enum Directions {North,East,South, West};
 enum Dimension  {Horizontal,Vertical };
 
 enum GameMechanisms {GetACoin, Win,Empty, WalkiIntoEnemy};
+
+enum Letters {A,S,D,W,SPACE,ESC};
 
 struct Collision{
 sf::Vector2f nachodzenie;

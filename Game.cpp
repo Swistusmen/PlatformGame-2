@@ -8,7 +8,7 @@
 #include "Game.hpp"
 #include <typeinfo>
 
-Game::Game():interfejs(Holder)
+Game::Game():interfejs()
 {
     stanGry=GameStates::Play;
 }
@@ -81,6 +81,10 @@ void Game::Run()
     sf::Clock timer;
     sf::Time DeltaTime=sf::seconds(1.f/20.f);
     bool c=0;
+
+    std::unique_ptr<Batch> wsk(new Batch(Holder));
+    interfejs.TakeBatch(std::move(wsk));
+
     while(appwindow.isOpen())
     {
 

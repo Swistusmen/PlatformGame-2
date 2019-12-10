@@ -11,6 +11,9 @@
 #include "Units.hpp"
 #include "Commands.hpp"
 #include "SFML/Graphics.hpp"
+#include "ActiveUnits.hpp"
+#include "PassiveUnits.hpp"
+#include "Batch.hpp"
 #pragma once
 
 
@@ -27,15 +30,15 @@ public:
     void draw(sf::RenderWindow& );
     void RespNewObjects(TextureHolder& );
 
+    Interface( std::unique_ptr<Batch>&& );
+    Interface()=default;
+
+    void TakeBatch(std::unique_ptr<Batch>&& );
+public:
     int Increment_Observers_IteratorPosition();//-1 jesli blad, w innym wypadku inkremenuje
     GameMechanisms&& ReturnMechanismFromTheObserwver();
     void StartSearchingForMechanics();
     bool IsEnd(){if (it1==_Observers.end())return 0; return 1;}
-
-
-
-
-    Interface( TextureHolder& );
 
 private:
     void MustBeDetectedFirst();

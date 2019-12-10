@@ -13,6 +13,8 @@
 #include "Commands.hpp"
 #include "Interface.hpp"
 #include "Controler.hpp"
+#include "Batch.hpp"
+#include "Loader.hpp"
 
 //#include "Observer.hpp"
 #pragma once
